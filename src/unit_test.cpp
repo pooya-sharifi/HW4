@@ -34,59 +34,63 @@ TEST(HW4Test, TEST3)
     EXPECT_EQ(ptr2.get(), nullptr);
 }
 
-// TEST(HW4Test, TEST4)
-// {
-//     UniquePtr<int> ptr1 { new int { 10 } };
-//     EXPECT_EQ(*ptr1, 10);
+TEST(HW4Test, TEST4)
+{
+    UniquePtr<int> ptr1 { new int { 10 } };
+    EXPECT_EQ(*ptr1, 10);
 
-//     UniquePtr<std::string> ptr2 { new std::string { "hello world!" } };
-//     EXPECT_EQ(*ptr2, "hello world!");
+    UniquePtr<std::string> ptr2 { new std::string { "hello world!" } };
+    EXPECT_EQ(*ptr2, "hello world!");
 
-//     UniquePtr<std::vector<int>> ptr3 { new std::vector<int> { 1, 2, 3, 4, 5 } };
-//     EXPECT_EQ((*ptr3)[1], 2);
-// }
-/*
-TEST(HW4Test, TEST5) {
-    UniquePtr<std::string> ptr1{new std::string{"hello world!"}};
+    UniquePtr<std::vector<int>> ptr3 { new std::vector<int> { 1, 2, 3, 4, 5 } };
+    EXPECT_EQ((*ptr3)[1], 2);
+}
+
+TEST(HW4Test, TEST5)
+{
+    UniquePtr<std::string> ptr1 { new std::string { "hello world!" } };
     EXPECT_EQ(ptr1->length(), 12);
 
-    UniquePtr<std::vector<int>> ptr3{new std::vector<int>{1, 2, 3, 4, 5}};
+    UniquePtr<std::vector<int>> ptr3 { new std::vector<int> { 1, 2, 3, 4, 5 } };
     EXPECT_FALSE(ptr3->empty());
 }
 
-TEST(HW4Test, TEST6) {
-    UniquePtr<std::string> ptr{new std::string{"hello world!"}};
+TEST(HW4Test, TEST6)
+{
+    UniquePtr<std::string> ptr { new std::string { "hello world!" } };
     EXPECT_EQ(ptr->length(), 12);
     ptr.reset();
     EXPECT_EQ(ptr.get(), nullptr);
 }
 
-TEST(HW4Test, TEST7) {
-    UniquePtr<std::string> ptr{new std::string{"hello world!"}};
+TEST(HW4Test, TEST7)
+{
+    UniquePtr<std::string> ptr { new std::string { "hello world!" } };
     EXPECT_EQ(ptr->length(), 12);
-    ptr.reset(new std::string{"nice job!"});
+    ptr.reset(new std::string { "nice job!" });
     EXPECT_EQ(*ptr, "nice job!");
 }
 
-TEST(HW4Test, TEST8) {
-    UniquePtr<double> ptr{new double{1.567}};
-    EXPECT_DOUBLE_EQ(*ptr, 1.567);
-    if(ptr)
-        ptr.reset();
-    EXPECT_FALSE(ptr);
-}
+// TEST(HW4Test, TEST8) {
+//     UniquePtr<double> ptr{new double{1.567}};
+//     EXPECT_DOUBLE_EQ(*ptr, 1.567);
+//     if(ptr)
+//         ptr.reset();
+//     EXPECT_FALSE(ptr);
+// }
 
-TEST(HW4Test, TEST9) {
-    UniquePtr<double> ptr{new double{1.567}};
-    EXPECT_DOUBLE_EQ(*ptr, 1.567);
-    double *tmp;
-    if(ptr)
-        tmp = ptr.release();
-    EXPECT_DOUBLE_EQ(*tmp, 1.567);
-    EXPECT_FALSE(ptr);
-    delete tmp;
-}
-
+// TEST(HW4Test, TEST9)
+// {
+//     UniquePtr<double> ptr { new double { 1.567 } };
+//     EXPECT_DOUBLE_EQ(*ptr, 1.567);
+//     double* tmp;
+//     if (ptr)
+//         tmp = ptr.release();
+//     EXPECT_DOUBLE_EQ(*tmp, 1.567);
+//     EXPECT_FALSE(ptr);
+//     delete tmp;
+// }
+/*
 TEST(HW4Test, TEST10) {
     SharedPtr<int> ptr1{new int{10}};
     EXPECT_EQ(*ptr1.get(), 10);
