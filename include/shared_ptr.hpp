@@ -74,8 +74,7 @@ SharedPtr<T>& SharedPtr<T>::operator=(SharedPtr<T>& pnt_right)
     delete _p;
     // new nabayad mikardim?
     _p = pnt_right._p;
-
-    *(pnt_right) = *(pnt_right.count)++;
+    *(pnt_right.count) = *(pnt_right.count) + 1;
     this->count = pnt_right.count;
     return *this;
 }
@@ -103,4 +102,74 @@ T& SharedPtr<T>::operator*()
     // in kar nemikone felan cho operator << hanooz nadarim
     // std::cout << *((*this).get()) << std::endl;
     return *((*this).get());
+}
+template <typename T>
+T* SharedPtr<T>::operator->()
+{
+    return _p;
+}
+template <typename T>
+void SharedPtr<T>::reset()
+{
+    if (count != nullptr) {
+        if (*count != 0) {
+            _p = nullptr;
+            delete _p;
+            _p = nullptr;
+        } else {
+            delete _p;
+            _p = nullptr;
+        }
+    }
+    if (count != nullptr) {
+        *count = *count - 1;
+        std::cout << "check to see what count is in its dying days" << *count << std::endl;
+        if (*count != 0) {
+            count = nullptr;
+            delete count;
+        } else {
+            // count = nullptr;
+            delete count;
+            // count = new int { 0 };
+            count = nullptr;
+        }
+    }
+    std::cout << "a shared pointer was reset" << std::endl;
+}
+template <typename T>
+void SharedPtr<T>::reset(T* pnt_given)
+{
+    if (count != nullptr) {
+        if (*count != 0) {
+            _p = nullptr;
+            delete _p;
+            _p = pnt_given;
+        } else {
+            delete _p;
+            _p = pnt_given;
+        }
+    }
+    // if (count != nullptr) {
+    //     *count = *count - 1;
+    //     std::cout << "check to see what count is in its dying days" << *count << std::endl;
+    //     if (*count != 0) {
+    //         count = nullptr;
+    //         delete count;
+    //     } else {
+    //         // count = nullptr;
+    //         delete count;
+    //         // count = new int { 0 };
+    //         count = nullptr;
+    //     }
+    // }
+    std::cout << "a shared pointer was reset" << std::endl;
+}
+template <typename T>
+SharedPtr<T>::operator bool()
+{
+    if (_p == nullptr) {
+        return false;
+    } else {
+        return true;
+    }
 }

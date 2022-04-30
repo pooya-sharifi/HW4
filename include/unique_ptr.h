@@ -21,6 +21,7 @@ public:
     T* reset();
     T* reset(T* pnt_given);
     T* release();
+    operator bool();
     // idk what this is
     // const T& operator[](const T& ind) const;
     // T& operator[](const T& ind);

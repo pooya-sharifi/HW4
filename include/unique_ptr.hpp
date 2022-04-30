@@ -90,3 +90,13 @@ T* UniquePtr<T>::release()
     _p = nullptr;
     return pnt_hold;
 }
+
+template <typename T>
+UniquePtr<T>::operator bool()
+{
+    if (_p == nullptr) {
+        return false;
+    } else {
+        return true;
+    }
+}

@@ -12,6 +12,10 @@ public:
     int use_count();
     T* get();
     T& operator*();
+    T* operator->();
+    void reset();
+    void reset(T*);
+    operator bool();
 
 private:
     T* _p;
