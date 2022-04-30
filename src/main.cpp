@@ -5,7 +5,7 @@
 
 int main(int argc, char** argv)
 {
-    if (false) // make false to run unit-tests
+    if (true) // make false to run unit-tests
     {
         // debug section
 
@@ -14,8 +14,8 @@ int main(int argc, char** argv)
 
         // UniquePtr<int> ptr1 { new int { 10 } };
         // UniquePtr<int> ptr2 { ptr1 };
-        SharedPtr<int> ptr { new int { 10 } };
-        std::cout << *ptr << std::endl; // output: 10
+        SharedPtr<std::string> ptr { new std::string { "hello" } };
+        std::cout << ptr->length() << std::endl; // output: 5
     } else {
         ::testing::InitGoogleTest(&argc, argv);
         std::cout << "RUNNING TESTS ..." << std::endl;

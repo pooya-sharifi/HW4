@@ -15,7 +15,7 @@ public:
 
 private:
     T* _p;
-    int count;
+    int* count;
 };
 template <typename T>
 T* make_shared(T N);
