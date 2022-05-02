@@ -57,12 +57,12 @@ SharedPtr<T>::SharedPtr(SharedPtr<T>& shared_ptr_right)
 
     _p = shared_ptr_right._p;
     // *_p = *(shared_ptr_right._p);
-    std::cout << shared_ptr_right._p << std::endl;
-    std::cout << _p << std::endl;
-    std::cout << "!!!!!!" << *shared_ptr_right.count << std::endl;
+    // std::cout << shared_ptr_right._p << std::endl;
+    // std::cout << _p << std::endl;
+    // std::cout << "!!!!!!" << *shared_ptr_right.count << std::endl;
     *(shared_ptr_right.count) = *(shared_ptr_right.count) + 1;
     this->count = shared_ptr_right.count;
-    std::cout << "!!!!!!" << *shared_ptr_right.count << "address::" << shared_ptr_right.count << "    " << count << std::endl;
+    // std::cout << "!!!!!!" << *shared_ptr_right.count << "address::" << shared_ptr_right.count << "    " << count << std::endl;
 }
 
 template <typename T>
