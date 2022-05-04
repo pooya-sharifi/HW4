@@ -46,8 +46,7 @@ template <typename T>
 T& UniquePtr<T>::operator*()
 {
     std::cout << "operator* output" << std::endl;
-    // in kar nemikone felan cho operator << hanooz nadarim
-    // std::cout << *((*this).get()) << std::endl;
+
     return *((*this).get());
 }
 // testing
